@@ -1,0 +1,79 @@
+.icon{
+    width: 6vw; /* Tamaño base del icono */
+    height: 6vw; /* Tamaño base del icono */
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  }
+  .icon-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1); 
+  }
+
+  .icon-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1); 
+    gap:30px;
+
+  }
+  
+  .text{
+    opacity: 0;
+    transition: opacity 0.3s ease; 
+
+    margin:0px;
+    margin-left: 10%;
+    
+  }
+
+  
+  .icon:hover {
+    transform: scale(1.2); 
+  }
+
+  .icon-col:hover .icon:hover {
+    transform: translateX(-10%) ; 
+  }
+  .icon:hover .text {
+    opacity: 1; 
+    transform: translateX(-10%) 
+  }
+
+
+
+/* ---------------------------MOBILE---------------------- */
+
+  .iconM{
+    width: 9vh; /* Tamaño base del icono */
+    height: 9vh; /* Tamaño base del icono */
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1); /* Cambia la curva de velocidad */
+
+  }
+  .icon-colM {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1); /* Cambia la curva de velocidad */
+  }
+
+  .icon-rowM {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1); /* Cambia la curva de velocidad */
+    gap:30px;
+
+  }
+  
+  .textM{
+    font-size: 10px;
+    transition: opacity 0.3s ease; 
+    margin:0px;
+    margin-left: 10%;
+    
+  }
+
+  
