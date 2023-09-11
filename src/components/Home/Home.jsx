@@ -36,7 +36,7 @@ const Home=({color, lang})=>{
 
     // Ejecuta la comprobación cuando se carga la página
     checkIsMobile();
-  }, []);
+  }, [viewportWidth]);
    
 
     const [mouseX, setMouseX] = useState(0);

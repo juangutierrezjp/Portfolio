@@ -36,8 +36,7 @@ const Sl1 = ({lang,color}) => {
 
     return(
         <div>
-            {//Desktop
-            viewportWidth > 800 && (
+
         <Row style={contentStyle} gutter={[16, 8]} >
                   <div style={{position:'fixed', width:"100vw", height:"100vh", }}>
                   {color==="black" &&
@@ -53,7 +52,10 @@ const Sl1 = ({lang,color}) => {
             <Col span={12}>
                 <Col span={24} >
                     <Col span={17} offset={8} style={{textAlign:"left"}}>
-                    <p style={{fontSize:"5vh"}}>{lang==="ES"?presentation[0].ES : presentation[0].EN}</p>
+                    <p style={{fontSize:"3vh", margin:"0px"}}>{lang==="ES"?presentation[0].ES : presentation[0].EN}</p>
+                    </Col>
+                    <Col span={17} offset={8} style={{textAlign:"left"}}>
+                    <p style={{fontSize:"5vh", margin:"0px"}}>{lang==="ES"?presentation[2].ES : presentation[2].EN}</p>
                     </Col>
                 </Col>
                 <Col span={24} >
@@ -67,30 +69,6 @@ const Sl1 = ({lang,color}) => {
                 <img src={PNG} style={{height:"80vh", display: "block", margin: "0 auto"}} />
             </Col>
         </Row>
-            )}
-    {//Mobile
-    viewportWidth < 800 && (
-        <Row style={contentStyle}>
-                <div style={{position:'fixed', minWidth:"200vh", height:"100vh",marginLeft:"-50vh",marginTop:"70vh", transform:"rotate(-90deg)",zIndex:0, overflow:"hidden"}}>
-                  {color==="black" &&
-                <video muted={true} autoPlay={true} loop={true} style={{ minWidth:"100vw", minHeight:"100vh" }}>
-                <source src={vid1} type='video/mp4'></source>
-                </video>}
-
-                {color==="white" &&
-                <video muted={true} autoPlay={true} loop={true} style={{ minWidth:"100vw", minHeight:"100vh", }}>
-                <source src={vid2} type='video/mp4'></source>
-                </video>}
-            </div>
-            <Col span={24}>
-                <Col span={24}><p style={{fontSize:"5vh"}}>{lang==="ES"?presentation[0].ES : presentation[0].EN}</p></Col>
-                <Col span={24}>{lang==="ES"?presentation[1].ES : presentation[1].EN}</Col>
-            </Col>
-            <Col span={24} style={{alignItems:"left", backgroundColor:""}}>
-            <img src={JPG} style={{width:"90vw",display: "block", margin: "0 auto" }} />
-            </Col>
-        </Row>
-)}
     </div>
     )
 
