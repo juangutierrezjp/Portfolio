@@ -19,17 +19,25 @@ import { useTransition, animated } from 'react-spring';
 const Home=({color, lang})=>{
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  const [isMobile, setIsMobile] = useState(false);
   const handleResize = () => {
       setViewportWidth(window.innerWidth);
       setViewportHeight(window.innerHeight);
     };
-    useEffect(() => {
-      window.addEventListener('resize', handleResize);
-  
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }, []);  
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    const mobileKeywords = ['Android', 'iPhone', 'iPad', 'Windows Phone'];
+
+    const checkIsMobile = () => {
+      const isMobileDevice = mobileKeywords.some(keyword => userAgent.includes(keyword)) || viewportWidth<800;
+      setIsMobile(isMobileDevice);
+    };
+
+    // Ejecuta la comprobación cuando se carga la página
+    checkIsMobile();
+  }, []);
+   
 
     const [mouseX, setMouseX] = useState(0);
     const [mouseY, setMouseY] = useState(0);
@@ -157,10 +165,11 @@ const Home=({color, lang})=>{
       <Carousel  ref={carouselRef} afterChange={(current) => {setCurrentSlide(current); focus(current)}} effect="scrollx" dotPosition='left' waitForAnimate="false" style={{width:"100vw", height:"100.5vh"}} >
     <div >
       <div style={contentStyle1}>
-      {viewportWidth > 800 && (
-      <Sl1 lang={lang} color={color} style={{zIndex:10}}></Sl1>)}
-      {viewportWidth < 800 && (
-      <Sl1Mobile lang={lang} color={color} style={{zIndex:10}}></Sl1Mobile>)}
+      {isMobile ? (
+      <Sl1Mobile lang={lang} color={color} style={{zIndex:10}}></Sl1Mobile>):
+      (<Sl1 lang={lang} color={color} style={{zIndex:10}}></Sl1>)
+      }
+
       </div>
     </div>
     <div>

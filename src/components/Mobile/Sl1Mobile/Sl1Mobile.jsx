@@ -35,7 +35,7 @@ const Sl1Mobile = ({lang,color}) => {
 
     return(
         <div>
-            <div style={{position:'fixed', minWidth:"200vh", height:"100vh",marginLeft:"-50vh",marginTop:"0vh", transform:"rotate(-90deg)", overflow:"hidden"}}>
+            <div style={{position:'fixed', minWidth:"100vw", height:"100vh",marginTop:"0vh",  overflow:"hidden"}}>
                   {color==="black" &&
                 <video muted={true} autoPlay={true} loop={true} style={{ minWidth:"100vw", minHeight:"100vh" }}>
                 <source src={vid1} type='video/mp4'></source>
