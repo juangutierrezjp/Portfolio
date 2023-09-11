@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "ant": "^0.2.0",
     "antd": "^5.8.2",
+    "antd-mobile": "^5.32.2",
     "aos": "^2.3.4",
     "clipboard-copy": "^4.0.1",
     "framer-motion": "^10.16.1",

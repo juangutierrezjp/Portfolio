@@ -1,7 +1,7 @@
 export const presentation=
-[{ES:"Hola! Soy Juan Gutierrez", EN:"Hi There! I'm Juan Gutierrez"},
+[{ES:"Hola! Soy", EN:"Hi There! I'm"},
 {ES:"Desarrollador Full Stack", EN:"Full Stack Developer"},
-{ES:"", EN:""}]
+{ES:"Juan Gutierrez", EN:"Juan Gutierrez"}]
 
 export const About=[
 {ES:"Acerca de mi", EN:"About me"},

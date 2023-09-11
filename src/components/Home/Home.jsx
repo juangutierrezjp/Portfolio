@@ -2,6 +2,7 @@ import { Carousel, Button } from 'antd';
 import {DownOutlined, RetweetOutlined, UpOutlined } from '@ant-design/icons';
 import React, { useEffect, useState, useRef} from 'react';
 import Sl1 from '../Sl1/Sl1';
+import Sl1Mobile from '../Mobile/Sl1Mobile/Sl1Mobile';
 import Sl2 from '../Sl2/Sl2';
 import Sl3 from '../Sl3/Sl3';
 import Sl4 from '../SL4/Sl4';
@@ -156,8 +157,10 @@ const Home=({color, lang})=>{
       <Carousel  ref={carouselRef} afterChange={(current) => {setCurrentSlide(current); focus(current)}} effect="scrollx" dotPosition='left' waitForAnimate="false" style={{width:"100vw", height:"100.5vh"}} >
     <div >
       <div style={contentStyle1}>
-
-      <Sl1 lang={lang} color={color} style={{zIndex:10}}></Sl1>
+      {viewportWidth > 800 && (
+      <Sl1 lang={lang} color={color} style={{zIndex:10}}></Sl1>)}
+      {viewportWidth < 800 && (
+      <Sl1Mobile lang={lang} color={color} style={{zIndex:10}}></Sl1Mobile>)}
       </div>
     </div>
     <div>
