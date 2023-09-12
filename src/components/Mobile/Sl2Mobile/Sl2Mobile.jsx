@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid} from 'antd-mobile';
 import { useState, useEffect } from 'react';
 import { About } from '../../Data';
-import profile from "../../../imgs/PROFILE.jpg"
+import profile from "../../../imgs/JPG.png"
 import { useTransition, animated } from 'react-spring';
 const TitleStyle= {
     textAlign: 'center',
@@ -86,7 +86,7 @@ const Sl2Mobile = ({lang,color, focused}) => {
     <Grid columns={1} gap={0} style={contentStyle}>
         <Grid.Item>
             <Grid columns={2} gap={0}>
-            <Grid.Item style={{width:"7vw",alignSelf:"end"}}> <img src={profile} style={{width:"7vw", display: "block", margin: "0 auto",borderRadius:"50%"}} /></Grid.Item>
+            <Grid.Item style={{width:"7vw",alignSelf:"end"}}> <img src={profile} style={{width:"7vw", display: "block", margin: "0 auto"}} /></Grid.Item>
             <Grid.Item style={{width:"73vw",marginLeft:"-30vw"}}> 
                 <div style={msgStyle}>
                      <p style={{margin: "0", fontSize:"1.5vh"}}>{lang==="ES"?About[3].ES : About[3].EN}</p>
@@ -113,7 +113,7 @@ const Sl2Mobile = ({lang,color, focused}) => {
     <Grid columns={1} gap={0} style={contentStyle}>
         <Grid.Item>
             <Grid columns={2} gap={0}>
-            <Grid.Item style={{width:"7vw",alignSelf:"end"}}> <img src={profile} style={{width:"7vw", display: "block", margin: "0 auto",borderRadius:"50%"}} /></Grid.Item>
+            <Grid.Item style={{width:"7vw",alignSelf:"end"}}> <img src={profile} style={{width:"7vw", display: "block", margin: "0 auto"}} /></Grid.Item>
             <Grid.Item style={{width:"15vw",marginLeft:"-30vw"}}> 
                 <div style={msgStyle}>
                      <p style={{margin: "0", fontSize:"1.5vh"}}>: )</p>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid} from 'antd-mobile';
 import { presentation } from '../../Data';
 import { useState, useEffect } from 'react';
-import JPG from "../../../imgs/PROFILE.jpg"
+import JPG from "../../../imgs/JPG.png"
 import vid1 from"../../../vid/1.mp4"
 import vid2 from"../../../vid/2.mp4"
 import Parallax from 'parallax-js';

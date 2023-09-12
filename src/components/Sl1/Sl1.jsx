@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Row } from 'antd';
 import { presentation } from '../Data';
 import { useState, useEffect } from 'react';
-import JPG from "../../imgs/PROFILE.jpg"
 import PNG from "../../imgs/JPG.png"
 import vid1 from"../../vid/1.mp4"
 import vid2 from"../../vid/2.mp4"
@@ -66,7 +65,7 @@ const Sl1 = ({lang,color}) => {
                 
             </Col>
             <Col span={12} style={{alignItems:"left"}}>
-                <img src={PNG} style={{height:"80vh", display: "block", margin: "0 auto"}} />
+                <img src={PNG} style={{height:"50vh", display: "block", margin: "0 auto"}} />
             </Col>
         </Row>
     </div>

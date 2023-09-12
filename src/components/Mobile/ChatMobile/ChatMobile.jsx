@@ -21,7 +21,7 @@ const ChatMobile=({color, lang})=>{
             console.log(val)
           }} 
           placeholder={lang==="ES"?About[4].ES : About[4].EN} 
-          style={{backgroundColor: `${color==="black" ? "#2C373D":"#FFFFFF"}`, "--color": `${color==="black" ? "white":"black"}`}}/>
+          style={{ backgroundColor: `${color==="black" ? "#2C373D":"#FFFFFF"}`, "--color": `${color==="black" ? "white":"black"}`, padding:"10px"}}/>
          </Grid.Item>
           
           <Grid.Item style={{width:"20vw", marginLeft:"18.2vw", alignContent:"center", alignItems:"center", alignSelf:"center"}}>

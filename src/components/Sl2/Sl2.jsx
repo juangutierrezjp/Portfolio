@@ -1,9 +1,9 @@
 import React from 'react';
 import { Col, Row} from 'antd';
 import { useState, useEffect } from 'react';
-import JPG from "../../imgs/JPG.jpg"
+
 import { About } from '../Data';
-import profile from "../../imgs/PROFILE.jpg"
+import profile from "../../imgs/JPG.png"
 import { useTransition, animated } from 'react-spring';
 const contentStyle= {
     textAlign: 'center',
@@ -49,7 +49,7 @@ const Sl2 = ({lang,color, focused}) => {
     </div>,
     <div>
     <Row align="bottom" gutter={[16, 8]} >
-    <Col span={2}><img src={profile} style={{width:"5vw", display: "block", margin: "0 auto",borderRadius:"50%"}} /></Col>
+    <Col span={2}><img src={profile} style={{width:"5vw", display: "block", margin: "0 auto"}} /></Col>
     <Col span={6}> 
             <div style={msgStyle}>
   <p style={{margin: "0", fontSize:"1.2vw"}}>{lang==="ES"?About[3].ES : About[3].EN}</p>
