@@ -26,14 +26,14 @@ const Sl2Mobile = ({lang,color, focused}) => {
         backgroundColor: `${color==="black" ? "#025C4C":"#E2FFC9"}`, borderRadius: "10px", padding:"10px",position:"relative"
     }
     const chatStyles2={
-        position: "absolute", width: "15px", height: "15px" ,backgroundColor: `${color==="black" ? "#025C4C":"#E2FFC9"}`, transform: "translateX(-10px) translateY(-10px) rotate(45deg)", bottom: "-5px",left:"100%"
+        position: "absolute", width: "15px", height: "15px" ,backgroundColor: `${color==="black" ? "#025C4C":"#E2FFC9"}`, transform: "translateX(-12px) translateY(-10px) rotate(45deg)", bottom: "-5px",left:"100%"
         
     }
     const msgStyle={
         backgroundColor: `${color==="black" ? "#464646":"#FEFEFE"}`, borderRadius: "10px", padding:"10px",position:"relative", textAlign: 'center'
     }
     const msgStyle1={
-        position: "absolute", width: "15px", height: "15px" ,backgroundColor: `${color==="black" ? "#464646":"#FEFEFE"}`, transform: "translateX(-15px) translateY(-10px) rotate(45deg)", bottom: "-5px",left:"10px"
+        position: "absolute", width: "15px", height: "15px" ,backgroundColor: `${color==="black" ? "#464646":"#FEFEFE"}`, transform: "translateX(-13px) translateY(-10px) rotate(45deg)", bottom: "-5px",left:"10px"
     }
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
     const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
@@ -86,8 +86,8 @@ const Sl2Mobile = ({lang,color, focused}) => {
     <Grid columns={1} gap={0} style={contentStyle}>
         <Grid.Item>
             <Grid columns={2} gap={0}>
-            <Grid.Item style={{width:"7vw",alignSelf:"end"}}> <img src={profile} style={{width:"7vw", display: "block", margin: "0 auto"}} /></Grid.Item>
-            <Grid.Item style={{width:"70vw",marginLeft:"-30vw"}}> 
+            <Grid.Item style={{width:"7vw",alignSelf:"end", marginLeft:"-9vw"}}> <img src={profile} style={{width:"7vw", display: "block", margin: "0 auto"}} /></Grid.Item>
+            <Grid.Item style={{width:"70vw",marginLeft:"-40vw"}}> 
                 <div style={msgStyle}>
                      <p style={{margin: "0", fontSize:"2vh"}}>{lang==="ES"?About[3].ES : About[3].EN}</p>
                     <div style={msgStyle1}></div>
@@ -113,8 +113,8 @@ const Sl2Mobile = ({lang,color, focused}) => {
     <Grid columns={1} gap={0} style={contentStyle}>
         <Grid.Item>
             <Grid columns={2} gap={0}>
-            <Grid.Item style={{width:"7vw",alignSelf:"end"}}> <img src={profile} style={{width:"7vw", display: "block", margin: "0 auto"}} /></Grid.Item>
-            <Grid.Item style={{width:"15vw",marginLeft:"-30vw"}}> 
+            <Grid.Item style={{width:"7vw",alignSelf:"end", marginLeft:"-9vw"}}> <img src={profile} style={{width:"7vw", display: "block", margin: "0 auto"}} /></Grid.Item>
+            <Grid.Item style={{width:"15vw",marginLeft:"-40vw"}}> 
                 <div style={msgStyle}>
                      <p style={{margin: "0", fontSize:"1.5vh"}}>: )</p>
                     <div style={msgStyle1}></div>

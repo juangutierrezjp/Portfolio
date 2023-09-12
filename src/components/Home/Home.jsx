@@ -188,7 +188,7 @@ const Home=({color, lang})=>{
       </div>
       {isMobile ? (
       <div>
-        <div style={{zIndex:20,position:"fixed", marginTop:"86vh"}}>
+        <div style={{zIndex:20,position:"fixed", marginTop:"82vh"}}>
         <ChatMobile lang={lang} color={color} />
         </div>
         <Sl2Mobile  lang={lang} color={color} focused={focused2}></Sl2Mobile>
