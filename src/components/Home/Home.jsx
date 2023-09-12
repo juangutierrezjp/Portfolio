@@ -16,6 +16,7 @@ import Sl2Mobile from '../Mobile/Sl2Mobile/Sl2Mobile';
 import ChatMobile from '../Mobile/ChatMobile/ChatMobile';
 import Sl3Mobile from '../Mobile/Sl3Mobile/Sl3Mobile';
 import Sl4Mobile from '../Mobile/SL4Mobile/Sl4Mobile';
+import Sl5Mobile from '../Mobile/Sl5Mobile/Sl5Mobile';
 
 
 
@@ -232,9 +233,14 @@ const Home=({color, lang})=>{
     </div>
 
     <div>
+    {isMobile?(
     <div style={contentStyle2}>
-      <Sl5 focus={focused5}lang={lang} color={color}></Sl5>
-      </div>
+      <Sl5Mobile focus={focused5}lang={lang} color={color}></Sl5Mobile>
+      </div>):(
+            <div style={contentStyle2}>
+            <Sl5 focus={focused5}lang={lang} color={color}></Sl5>
+            </div>
+      )}
     </div>
 
   </Carousel>
