@@ -6,6 +6,7 @@ import JPG from "../../../imgs/PROFILE.jpg"
 import vid1 from"../../../vid/1.mp4"
 import vid2 from"../../../vid/2.mp4"
 
+
 const contentStyle= {
     marginTop:"0px",
     height: '100vh',
@@ -18,24 +19,32 @@ const contentStyle= {
 
 
 
-const Sl1Mobile = ({lang,color}) => {
-    const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-    const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
-    const handleResize = () => {
-        setViewportWidth(window.innerWidth);
-        setViewportHeight(window.innerHeight);
-      };
+const Sl1Mobile = ({lang,color}) => {  
+
+      const [beta, setBeta] = useState(0); // Ángulo de inclinación hacia adelante/atrás
+      const [gamma, setGamma] = useState(0); // Ángulo de inclinación hacia los lados
+
       useEffect(() => {
-        window.addEventListener('resize', handleResize);
-    
-        return () => {
-          window.removeEventListener('resize', handleResize);
+        // Función de manejo para los datos del giroscopio
+        const handleOrientation = (event) => {
+          setBeta(event.beta); // Actualiza el ángulo beta
+          setGamma(event.gamma); // Actualiza el ángulo gamma
         };
-      }, []);    
+    
+        // Agregar el evento de orientación
+        window.addEventListener('deviceorientation', handleOrientation);
+    
+        // Limpiar el evento al desmontar el componente
+        return () => {
+          window.removeEventListener('deviceorientation', handleOrientation);
+        };
+      }, []);
+
+
 
     return(
         <div>
-            <div style={{position:'fixed', minWidth:"100vw", height:"100vh",marginTop:"0vh",  overflow:"hidden"}}>
+            <div style={{position:'fixed', minWidth:"100vw", height:"100vh",marginTop:"0vh",  overflow:"hidden", transform: `translateY(${beta * 2}px) translateX(${gamma * 2}px)`}} >
                   {color==="black" &&
                 <video muted={true} autoPlay={true} loop={true} style={{ minWidth:"100vw", minHeight:"100vh" }}>
                 <source src={vid1} type='video/mp4'></source>
