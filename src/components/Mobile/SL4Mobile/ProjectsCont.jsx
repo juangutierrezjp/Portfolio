@@ -21,8 +21,8 @@ const ProjectsCont=({lang, color})=>{
                         <div key={i.Tittle} style={{ marginLeft:"4vw", marginTop:"4vw"}}>
                         <div className={`roll-in-blurred-right${index}`} >
                             <CardsMobile
-                            w="42vw"
-                            h="18vh"
+                            w="40vw"
+                            h="12vh"
                             Name={i.Tittle} 
                             Desc={lang==="ES"?i.Description.ES:i.Description.EN}
                             git={i.Links.github}
