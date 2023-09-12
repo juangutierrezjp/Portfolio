@@ -20,7 +20,8 @@ const contentStyle= {
 
 
 const Sl1Mobile = ({lang,color}) => {  
-
+    const [betaInicial, setBetaInicial] = useState(0);
+    const [gammaInicial, setGammaInicial] = useState(0);
       const [beta, setBeta] = useState(0); // Ángulo de inclinación hacia adelante/atrás
       const [gamma, setGamma] = useState(0); // Ángulo de inclinación hacia los lados
 
@@ -33,18 +34,22 @@ const Sl1Mobile = ({lang,color}) => {
     
         // Agregar el evento de orientación
         window.addEventListener('deviceorientation', handleOrientation);
-    
+            // Calibrar los ángulos iniciales al montar el componente
+    setBetaInicial(beta);
+    setGammaInicial(gamma);
         // Limpiar el evento al desmontar el componente
         return () => {
           window.removeEventListener('deviceorientation', handleOrientation);
         };
       }, []);
+      const diferenciaBeta = beta - betaInicial;
+      const diferenciaGamma = gamma - gammaInicial;
 
 
 
     return(
         <div>
-            <div style={{position:'fixed', minWidth:"100vw", height:"100vh",marginTop:"0vh",  overflow:"hidden", transform: `translateY(${beta * 2}px) translateX(${gamma * 2}px)`}} >
+            <div style={{position:'fixed', minWidth:"100vw", height:"100vh",marginTop:"0vh",  overflow:"hidden", transform: `translateY(${diferenciaBeta * 2}px) translateX(${diferenciaGamma * 2}px)`}} >
                   {color==="black" &&
                 <video muted={true} autoPlay={true} loop={true} style={{ minWidth:"100vw", minHeight:"100vh" }}>
                 <source src={vid1} type='video/mp4'></source>
