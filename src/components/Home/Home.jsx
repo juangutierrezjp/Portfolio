@@ -15,6 +15,7 @@ import { useTransition, animated } from 'react-spring';
 import Sl2Mobile from '../Mobile/Sl2Mobile/Sl2Mobile';
 import ChatMobile from '../Mobile/ChatMobile/ChatMobile';
 import Sl3Mobile from '../Mobile/Sl3Mobile/Sl3Mobile';
+import Sl4Mobile from '../Mobile/SL4Mobile/Sl4Mobile';
 
 
 
@@ -218,9 +219,16 @@ const Home=({color, lang})=>{
     </div>
 
     <div>
-    <div style={contentStyle2}>
+    {isMobile?(
+      <div style={contentStyle2}>
+      <Sl4Mobile focus={focused4}lang={lang} color={color}></Sl4Mobile>
+      </div>
+      ):      
+      <div style={contentStyle2}>
       <Sl4 focus={focused4}lang={lang} color={color}></Sl4>
       </div>
+    }
+
     </div>
 
     <div>
