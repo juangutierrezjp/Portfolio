@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import JPG from "../../../imgs/PROFILE.jpg"
 import vid1 from"../../../vid/1.mp4"
 import vid2 from"../../../vid/2.mp4"
+import Parallax from 'parallax-js';
 
 
 const contentStyle= {
@@ -25,53 +26,28 @@ const Sl1Mobile = ({lang,color}) => {
     const [beta, setBeta] = useState(0); // Ángulo de inclinación hacia adelante/atrás
     const [gamma, setGamma] = useState(0); // Ángulo de inclinación hacia los lados
     
+
+
     useEffect(() => {
-        // Función de manejo para los datos del giroscopio
-        const handleOrientation = (event) => {
-            setBeta(event.beta); // Actualiza el ángulo beta
-            setGamma(event.gamma); // Actualiza el ángulo gamma
-            if (betaInicial === null) {
-                setBetaInicial(event.beta);
-              }
-              if (gammaInicial === null) {
-                setGammaInicial(event.gamma);
-              }
-        };
-        
-        // Agregar el evento de orientación
-        window.addEventListener('deviceorientation', handleOrientation);
-        // Calibrar los ángulos iniciales al montar el componente
-
-
-        // Limpiar el evento al desmontar el componente
+        // Inicializa Parallax.js en el elemento deseado después de que el componente se monte
+        const scene = document.querySelector('.parallax');
+        const parallaxInstance = new Parallax(scene, {
+            invertX: false, // Evita que se invierta el movimiento en el eje X
+            invertY: false, // Evita que se invierta el movimiento en el eje Y
+          });
+    
+        // Asegúrate de limpiar la instancia de Parallax.js al desmontar el componente
         return () => {
-          window.removeEventListener('deviceorientation', handleOrientation);
+          parallaxInstance.destroy();
         };
-      }, [betaInicial, gammaInicial]);
-
-
-      const diferenciaBeta = beta - betaInicial;
-      const diferenciaGamma =  gamma - gammaInicial;
+      }, []);
 
 
 
     return(
-        <div>
-            <div  style={{position:"fixed", color:"green", zIndex:"100", marginTop:"3vh"}}>
-                <ul>
-                    <li  data-depth="0.2">beta: {beta}</li>
-                    <li  data-depth="0.6">gamma: {gamma}</li>
-                    <li> betaInicial : {betaInicial}</li>
-                    <li>gammaInicial: {gammaInicial}</li>
-                    <li> diferenciaBeta:{diferenciaBeta}</li>
-                    <li>diferenciagamma: {diferenciaGamma}</li>
-                </ul>
-            
-            
+        <div >
 
-
-            </div>
-            <div style={{position:'fixed', minWidth:"100vw", height:"100vh",marginTop:"0vh", marginLeft:"-60vw",  overflow:"hidden", transform: `translateY(${diferenciaBeta * 0.8}px) translateX(${diferenciaGamma * 0.8}px)`}} >
+<div  style={{position:'fixed', minWidth:"100vw", height:"100vh",Top:"100vh", marginLeft:"-60vw"}} data-depth="0.2">
                   {color==="black" &&
                 <video muted={true} autoPlay={true} loop={true} style={{ minWidth:"100vw", minHeight:"100vh" }}>
                 <source src={vid1} type='video/mp4'></source>
@@ -81,26 +57,31 @@ const Sl1Mobile = ({lang,color}) => {
                 <video muted={true} autoPlay={true} loop={true} style={{ minWidth:"100vw", minHeight:"100vh", }}>
                 <source src={vid2} type='video/mp4'></source>
                 </video>}
-            </div>
-
-            <div style={{position:'fixed',zIndex:10, marginTop:"10vh", marginLeft:"10vw", width:"80vw", height:"80vw"}}>
-        <Grid columns={1} gap={10} >
-        <Grid.Item style={{ textAlign:"center", transform: `translateY(${diferenciaBeta *1 }px) translateX(${diferenciaGamma * 0.5}px)`}}>
+                    </div>
+<div className='parallax'>
+    <div data-depth="1">
+    <div style={{position:"fixed",zIndex:10, marginTop:"10vh", marginLeft:"10vw", width:"80vw", height:"80vw"}} >
+        <Grid columns={1} gap={10} style={{backgroundColor:"green"}}  >
+        <Grid.Item style={{ textAlign:"center"}}    >
                 <p style={{fontSize:"3vh", margin:"0px", }}>{lang==="ES"?presentation[0].ES : presentation[0].EN}</p>
             </Grid.Item>
-            <Grid.Item style={{ textAlign:"center", transform: `translateY(${diferenciaBeta *1.2}px) translateX(${diferenciaGamma *0.9}px)`}} >
+            <Grid.Item style={{ textAlign:"center", }} >
                 <p style={{fontSize:"5vh" , margin:"0px"}}>{lang==="ES"?presentation[2].ES : presentation[2].EN}</p>
             </Grid.Item>
             
-            <Grid.Item style={{ textAlign:"center", transform: `translateY(${diferenciaBeta *1 }px) translateX(${diferenciaGamma * 0.5}px)`}}>
+            <Grid.Item style={{ textAlign:"center"}}>
                 <p>{lang==="ES"?presentation[1].ES : presentation[1].EN}</p>
             </Grid.Item>
         </Grid>
-        <Grid columns={1} style={{marginTop:"10vh"}}>
+        <Grid columns={1} style={{marginTop:"10vh"}} data-depth="0.2">
             <Grid.Item style={{alignItems:"left", backgroundColor:""}}>
             <img src={JPG} style={{height:"36vh",display: "block", margin: "0 auto" }} />
             </Grid.Item>
         </Grid>
+        </div>
+            </div>
+
+
             </div>
     </div>
     )

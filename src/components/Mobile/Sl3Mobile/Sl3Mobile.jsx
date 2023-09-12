@@ -31,7 +31,7 @@ const Sl3Mobile = ({lang,color,focused}) => {
 }
         
         const contentStyle2M= {
-            marginTop:"200px",
+            marginTop:"0px",
             height: '10vh',
             width:"101vw",
 }
@@ -43,20 +43,11 @@ const Sl3Mobile = ({lang,color,focused}) => {
             
         }
 
-        useEffect(() => {
-            // Inicializa Parallax.js en el elemento deseado después de que el componente se monte
-            const scene = document.querySelector('.parallax');
-            const parallaxInstance = new Parallax(scene);
-        
-            // Asegúrate de limpiar la instancia de Parallax.js al desmontar el componente
-            return () => {
-              parallaxInstance.destroy();
-            };
-          }, []);
+
 
     return(
 
-        <div className="parallax" >
+        <div >
         <div style={{position:"fixed", backgroundColor:"#bc6c25",borderRadius: '20px', padding:"0 10px 0px 30px", marginTop:"4vh", marginLeft:"-20px"}}>
             <p style={{fontSize:"3vh"}}>TECH SKILLS</p>
         </div>
@@ -71,7 +62,7 @@ const Sl3Mobile = ({lang,color,focused}) => {
             </Grid>
         </div>
 
-    <div style={{backgroundColor:"red"}}data-depth="0.2"> 
+    <div style={{backgroundColor:"red"}}data-depth="5"> 
 <Grid columns={2} style={contentStyleM} >
     <Grid.Item  >
         <div style={{marginTop:"15px"}}>
