@@ -20,23 +20,22 @@ const contentStyle= {
 
 
 const Sl1Mobile = ({lang,color}) => {  
-    const [betaInicial, setBetaInicial] = useState(0);
-    const [gammaInicial, setGammaInicial] = useState(0);
-      const [beta, setBeta] = useState(0); // Ángulo de inclinación hacia adelante/atrás
-      const [gamma, setGamma] = useState(0); // Ángulo de inclinación hacia los lados
-
-      useEffect(() => {
+    const [beta, setBeta] = useState(0); // Ángulo de inclinación hacia adelante/atrás
+    const [gamma, setGamma] = useState(0); // Ángulo de inclinación hacia los lados
+    
+    useEffect(() => {
         // Función de manejo para los datos del giroscopio
         const handleOrientation = (event) => {
-          setBeta(event.beta); // Actualiza el ángulo beta
-          setGamma(event.gamma); // Actualiza el ángulo gamma
+            setBeta(event.beta); // Actualiza el ángulo beta
+            setGamma(event.gamma); // Actualiza el ángulo gamma
         };
-    
+        
         // Agregar el evento de orientación
         window.addEventListener('deviceorientation', handleOrientation);
-            // Calibrar los ángulos iniciales al montar el componente
-    setBetaInicial(beta);
-    setGammaInicial(gamma);
+        // Calibrar los ángulos iniciales al montar el componente
+        const [betaInicial, setBetaInicial] = useState(beta);
+        const [gammaInicial, setGammaInicial] = useState(gamma);
+
         // Limpiar el evento al desmontar el componente
         return () => {
           window.removeEventListener('deviceorientation', handleOrientation);
