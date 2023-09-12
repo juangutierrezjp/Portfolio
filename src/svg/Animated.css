@@ -70,14 +70,15 @@
   }
   
   .textM{
+    color: white;
     font-size: 10px;
+    display: inline-block;
     transition: opacity 0.3s ease; 
     margin:0px;
-    margin-left: 0%;
-    background-color: rgba(56, 56, 56, 0.414);
-    border-radius: 30px;
-    width: 100%;
-    
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgba(171, 168, 168, 0.414);
+    border-radius: 5px;
   }
 
   
