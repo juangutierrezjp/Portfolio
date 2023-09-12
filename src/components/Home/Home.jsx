@@ -12,6 +12,8 @@ import wall1 from "../../imgs/wall1.jpg"
 import wall2 from "../../imgs/wall2.jpg"
 import vid1 from"../../vid/1.mp4"
 import { useTransition, animated } from 'react-spring';
+import Sl2Mobile from '../Mobile/Sl2Mobile/Sl2Mobile';
+import ChatMobile from '../Mobile/ChatMobile/ChatMobile';
 
 
 
@@ -158,9 +160,6 @@ const Home=({color, lang})=>{
         {currentSlide<totalSlides && viewportWidth<800 && <DownOutlined  height={"2000px"} onClick={nextSlide} style={{fontSize:"4vh", position:"fixed", zIndex:"300", overflow:"hidden", left:"46vw", bottom:"2vh", color:`${color==="black"?"white":"black"}` }}/>}
         {currentSlide===totalSlides && viewportWidth<800 && <RetweetOutlined height={"2000px"} onClick={nextSlide} style={{fontSize:"4vh", position:"fixed", zIndex:"300", overflow:"hidden", left:"46vw", bottom:"2vh", color:`${color==="black"?"white":"black"}` }}/>}
 
-
-    
-
 </div>
       <Carousel  ref={carouselRef} afterChange={(current) => {setCurrentSlide(current); focus(current)}} effect="scrollx" dotPosition='left' waitForAnimate="false" style={{width:"100vw", height:"100.5vh"}} >
     <div >
@@ -184,23 +183,38 @@ const Home=({color, lang})=>{
     zIndex:0
   }}>
       </div>
-      <div style={{zIndex:20,position:"fixed", marginTop:"90vh"}}>
-      <Chat lang={lang} color={color} focused={focused2}/>
+      {isMobile ? (
+      <div>
+        <div style={{zIndex:20,position:"fixed", marginTop:"84vh"}}>
+        <ChatMobile lang={lang} color={color} />
+        </div>
+        <Sl2Mobile  lang={lang} color={color} focused={focused2}></Sl2Mobile>
       </div>
-      <Sl2  lang={lang} color={color} focused={focused2}></Sl2>
+      ):
+      (
+      <div>
+          <div style={{zIndex:20,position:"fixed", marginTop:"90vh"}}>
+            <Chat lang={lang} color={color} focused={focused2}/>
+          </div>
+          <Sl2  lang={lang} color={color} focused={focused2}></Sl2>
+      </div>
+      )}
       </div>
     </div>
+
     <div>
     <div style={contentStyle3} onMouseMove={handleMouseMove}>
     <img style={{position:"fixed", marginLeft:"-20px",marginTop:"-20px",maxHeight:"110vh", minWidth:"110vw",transform: `translate(${mouseX}px, ${mouseY}px)`}} src={color==="black"?wall2:wall1} alt="" />
       <Sl3 focus={focused3}></Sl3>
       </div>
     </div>
+
     <div>
     <div style={contentStyle2}>
       <Sl4 focus={focused4}lang={lang} color={color}></Sl4>
       </div>
     </div>
+
     <div>
     <div style={contentStyle2}>
       <Sl5 focus={focused5}lang={lang} color={color}></Sl5>
