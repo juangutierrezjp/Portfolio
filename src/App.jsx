@@ -10,7 +10,7 @@ import VerticalLine from './components/lines/VerticalLine';
 
 function App() {
   const [color, setcolor] = useState("black")
-  const [lang, setLang] = useState("EN")
+  const [lang, setLang] = useState("ES")
 
 
   return (

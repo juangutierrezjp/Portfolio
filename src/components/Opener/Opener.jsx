@@ -5,6 +5,7 @@ import { Col,Row } from 'antd';
 import { Popup,  Button } from "antd-mobile";
 import {CloseOutlined, ToolOutlined  } from '@ant-design/icons';
 import React, { useEffect, useState, } from 'react';
+import { Grid } from "antd-mobile";
 
 
 
@@ -99,9 +100,19 @@ const Opener=({setcolor, setLang, color, lang})=>{
               onClose={() => {
                 setVisible1(false)
               }}
-              bodyStyle={{ height: '30vh' }}
+              bodyStyle={{ height: '24vh' }}
             >
-              
+              <Grid columns={1}>
+                <Grid.Item>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', marginTop:"1vh"}}>
+                <ToolOutlined style={{color:"gray", fontSize:"5vh"}}/>
+                  </div>
+                </Grid.Item>
+              </Grid>
+              <div  style={{marginTop:"4vh"}}>
+            <ThemeSelector color={color} setColor={setcolor} setOpen={setOpen} open={open} mobile={true}/>
+            <LangSelector lang={lang}  setLang={setLang} setOpen={setOpen} open={open} mobile={true}/>
+              </div>
             </Popup>
             </div>
             ):(<div style={{position:"fixed", bottom:"10px",right:"17px", zIndex:"100"}}>
