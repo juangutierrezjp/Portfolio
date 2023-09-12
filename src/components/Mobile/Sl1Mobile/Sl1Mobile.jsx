@@ -49,6 +49,20 @@ const Sl1Mobile = ({lang,color}) => {
 
     return(
         <div>
+            <div style={{position:"fixed", color:"green", zIndex:"100", marginTop:"3vh"}}>
+                <ul>
+                    <li>beta: {beta}</li>
+                    <li>gamma: {gamma}</li>
+                    <li> betaInicial : {betaInicial}</li>
+                    <li>gammaInicial: {gammaInicial}</li>
+                    <li> diferenciaBeta:{diferenciaBeta}</li>
+                    <li>diferenciagamma: {diferenciaGamma}</li>
+                </ul>
+            
+            
+
+
+            </div>
             <div style={{position:'fixed', minWidth:"100vw", height:"100vh",marginTop:"0vh",  overflow:"hidden", transform: `translateY(${diferenciaBeta * 2}px) translateX(${diferenciaGamma * 2}px)`}} >
                   {color==="black" &&
                 <video muted={true} autoPlay={true} loop={true} style={{ minWidth:"100vw", minHeight:"100vh" }}>
