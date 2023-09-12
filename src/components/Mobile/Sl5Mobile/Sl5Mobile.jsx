@@ -8,6 +8,7 @@ import clipboardCopy from 'clipboard-copy';
 import { notification } from 'antd';
 import { CheckOutlined } from '@ant-design/icons'
 import { ConnectDat } from '../../Data';
+import {Toast } from 'antd-mobile'
 import jpg from '../../../imgs/juan.jpg'
 const contentStyle= {
     marginLeft:"10vw",
@@ -25,10 +26,10 @@ const contentStyle= {
 const Sl5Mobile = ({lang, color}) => {
     const handleCopyToClipboard = () => {
         clipboardCopy("ggjuanpatricio@gmail.com");
-        notification.open({
-            message: <p><CheckOutlined style={{color:"green"}}/> "ggjuanpatricio@gmail.com"</p>,
-            description:lang==="ES"? ConnectDat[2].ES:ConnectDat[2].EN ,
-            placement: "top"
+        Toast.show({
+            icon: 'success',
+            content: <div><p fontSize> ggjuanpatricio@gmail.com</p><p> {lang==="ES"? ConnectDat[2].ES:ConnectDat[2].EN}</p>
+                </div>
         })
       };
     
