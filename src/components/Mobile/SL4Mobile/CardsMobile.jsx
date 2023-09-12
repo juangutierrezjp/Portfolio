@@ -21,12 +21,12 @@ const CardsMobile=({Name, Desc, Img, git, deploy, color, w, h})=>{
           image={Img}
           title={Name}
         />
-  <CardContent>
+  <CardContent >
     <Typography gutterBottom variant="h5" component="div">
-      {Name}
+      <div>{Name}</div>
     </Typography>
     <Typography variant="body2" color="text.secondary">
-      {Desc}
+      <div style={{fontSize:"1.5vh"}}>{Desc}</div>
     </Typography>
   </CardContent>
   <CardActions>
