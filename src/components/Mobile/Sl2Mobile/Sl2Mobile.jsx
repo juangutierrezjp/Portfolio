@@ -87,9 +87,9 @@ const Sl2Mobile = ({lang,color, focused}) => {
         <Grid.Item>
             <Grid columns={2} gap={0}>
             <Grid.Item style={{width:"7vw",alignSelf:"end"}}> <img src={profile} style={{width:"7vw", display: "block", margin: "0 auto"}} /></Grid.Item>
-            <Grid.Item style={{width:"73vw",marginLeft:"-30vw"}}> 
+            <Grid.Item style={{width:"70vw",marginLeft:"-30vw"}}> 
                 <div style={msgStyle}>
-                     <p style={{margin: "0", fontSize:"1.5vh"}}>{lang==="ES"?About[3].ES : About[3].EN}</p>
+                     <p style={{margin: "0", fontSize:"2vh"}}>{lang==="ES"?About[3].ES : About[3].EN}</p>
                     <div style={msgStyle1}></div>
                 </div>
             </Grid.Item>
