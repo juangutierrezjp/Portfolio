@@ -84,15 +84,15 @@ const Sl1Mobile = ({lang,color}) => {
             </div>
 
             <div style={{position:'fixed',zIndex:10, marginTop:"10vh", marginLeft:"10vw", width:"80vw", height:"80vw"}}>
-        <Grid columns={1} gap={10} style={{transform: `translateY(${diferenciaBeta *1 }px) translateX(${diferenciaGamma * 1}px)`}}>
-        <Grid.Item style={{ textAlign:"center"}}>
-                <p style={{fontSize:"3vh", margin:"0px"}}>{lang==="ES"?presentation[0].ES : presentation[0].EN}</p>
+        <Grid columns={1} gap={10} >
+        <Grid.Item style={{ textAlign:"center", transform: `translateY(${diferenciaBeta *1 }px) translateX(${diferenciaGamma * 1}px)`}}>
+                <p style={{fontSize:"3vh", margin:"0px", }}>{lang==="ES"?presentation[0].ES : presentation[0].EN}</p>
             </Grid.Item>
-            <Grid.Item style={{ textAlign:"center"}} >
+            <Grid.Item style={{ textAlign:"center", transform: `translateY(${diferenciaBeta *1.2}px) translateX(${diferenciaGamma * 1.2}px)`}} >
                 <p style={{fontSize:"5vh" , margin:"0px"}}>{lang==="ES"?presentation[2].ES : presentation[2].EN}</p>
             </Grid.Item>
             
-            <Grid.Item style={{ textAlign:"center"}}>
+            <Grid.Item style={{ textAlign:"center", transform: `translateY(${diferenciaBeta *1 }px) translateX(${diferenciaGamma * 1}px)`}}>
                 <p>{lang==="ES"?presentation[1].ES : presentation[1].EN}</p>
             </Grid.Item>
         </Grid>
