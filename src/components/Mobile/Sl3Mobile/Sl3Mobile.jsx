@@ -1,9 +1,9 @@
 import React from 'react';
-import { Col, Row } from 'antd';
 import { Grid } from 'antd-mobile';
-import { useState, useEffect } from 'react';
 import FrontCont from '../../../svg/FrontCont';
 import BackCont from '../../../svg/BackCont';
+import  { useEffect } from 'react';
+import Parallax from 'parallax-js';
 
 const Sl3Mobile = ({lang,color,focused}) => {
       const containerStylesMobile = {
@@ -31,7 +31,7 @@ const Sl3Mobile = ({lang,color,focused}) => {
 }
         
         const contentStyle2M= {
-            marginTop:"0px",
+            marginTop:"200px",
             height: '10vh',
             width:"101vw",
 }
@@ -43,9 +43,20 @@ const Sl3Mobile = ({lang,color,focused}) => {
             
         }
 
+        useEffect(() => {
+            // Inicializa Parallax.js en el elemento deseado después de que el componente se monte
+            const scene = document.querySelector('.parallax');
+            const parallaxInstance = new Parallax(scene);
+        
+            // Asegúrate de limpiar la instancia de Parallax.js al desmontar el componente
+            return () => {
+              parallaxInstance.destroy();
+            };
+          }, []);
+
     return(
 
-        <div>
+        <div className="parallax" >
         <div style={{position:"fixed", backgroundColor:"#bc6c25",borderRadius: '20px', padding:"0 10px 0px 30px", marginTop:"4vh", marginLeft:"-20px"}}>
             <p style={{fontSize:"3vh"}}>TECH SKILLS</p>
         </div>
@@ -60,18 +71,21 @@ const Sl3Mobile = ({lang,color,focused}) => {
             </Grid>
         </div>
 
-<Grid columns={2} style={contentStyleM}>
-    <Grid.Item>
+    <div style={{backgroundColor:"red"}}data-depth="0.2"> 
+<Grid columns={2} style={contentStyleM} >
+    <Grid.Item  >
         <div style={{marginTop:"15px"}}>
         <FrontCont  size="9vh" mobile={true}/>
         </div>
     </Grid.Item>
-    <Grid.Item>
-        <div style={{marginTop:"15px"}}>
+    <Grid.Item >
+        <div style={{marginTop:"15px"}} >
         <BackCont size="9vh" mobile={true}/>
         </div>
     </Grid.Item>
+   
 </Grid>
+</div>
 </div>
 
     )

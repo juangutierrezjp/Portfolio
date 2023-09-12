@@ -8,11 +8,11 @@ import Opener from './components/Opener/Opener';
 import VerticalLine from './components/lines/VerticalLine';
 
 
+
 function App() {
   const [color, setcolor] = useState("black")
   const [lang, setLang] = useState("ES")
-  var scene = document.getElementById('scene');
-  Parallax(scene);
+
 
 
   return (

@@ -57,7 +57,7 @@ const Sl1Mobile = ({lang,color}) => {
 
     return(
         <div>
-            <div id="scene" style={{position:"fixed", color:"green", zIndex:"100", marginTop:"3vh"}}>
+            <div  style={{position:"fixed", color:"green", zIndex:"100", marginTop:"3vh"}}>
                 <ul>
                     <li  data-depth="0.2">beta: {beta}</li>
                     <li  data-depth="0.6">gamma: {gamma}</li>
