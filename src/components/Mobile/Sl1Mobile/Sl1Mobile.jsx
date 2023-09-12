@@ -58,10 +58,11 @@ const Sl1Mobile = ({lang,color}) => {
                 <source src={vid2} type='video/mp4'></source>
                 </video>}
                     </div>
+ <div style={{position:"fixed"}}>
 <div className='parallax'>
     <div data-depth="1">
-    <div style={{position:"fixed",zIndex:10, marginTop:"10vh", marginLeft:"10vw", width:"80vw", height:"80vw"}} >
-        <Grid columns={1} gap={10} style={{backgroundColor:"green"}}  >
+    <div style={{zIndex:10, marginTop:"10vh", marginLeft:"10vw", width:"80vw", height:"80vw"}} >
+        <Grid columns={1} gap={10}>
         <Grid.Item style={{ textAlign:"center"}}    >
                 <p style={{fontSize:"3vh", margin:"0px", }}>{lang==="ES"?presentation[0].ES : presentation[0].EN}</p>
             </Grid.Item>
@@ -79,6 +80,7 @@ const Sl1Mobile = ({lang,color}) => {
             </Grid.Item>
         </Grid>
         </div>
+            </div>
             </div>
 
 
