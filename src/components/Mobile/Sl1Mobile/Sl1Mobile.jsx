@@ -19,7 +19,9 @@ const contentStyle= {
 
 
 
-const Sl1Mobile = ({lang,color}) => {  
+const Sl1Mobile = ({lang,color}) => { 
+    const [betaInicial, setBetaInicial] = useState(null);
+    const [gammaInicial, setGammaInicial] = useState(null); 
     const [beta, setBeta] = useState(0); // Ángulo de inclinación hacia adelante/atrás
     const [gamma, setGamma] = useState(0); // Ángulo de inclinación hacia los lados
     
@@ -28,6 +30,12 @@ const Sl1Mobile = ({lang,color}) => {
         const handleOrientation = (event) => {
             setBeta(event.beta); // Actualiza el ángulo beta
             setGamma(event.gamma); // Actualiza el ángulo gamma
+            if (betaInicial === null) {
+                setBetaInicial(event.beta);
+              }
+              if (gammaInicial === null) {
+                setGammaInicial(event.gamma);
+              }
         };
         
         // Agregar el evento de orientación
@@ -39,12 +47,11 @@ const Sl1Mobile = ({lang,color}) => {
         return () => {
           window.removeEventListener('deviceorientation', handleOrientation);
         };
-      }, []);
+      }, [betaInicial, gammaInicial]);
 
-      const [betaInicial, setBetaInicial] = useState(beta);
-      const [gammaInicial, setGammaInicial] = useState(gamma);
-      const diferenciaBeta = betaInicial - beta;
-      const diferenciaGamma =  gammaInicial -gamma;
+
+      const diferenciaBeta = beta - betaInicial;
+      const diferenciaGamma =  gamma - gammaInicial;
 
 
 
