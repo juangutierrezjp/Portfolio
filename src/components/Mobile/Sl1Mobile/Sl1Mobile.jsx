@@ -71,7 +71,7 @@ const Sl1Mobile = ({lang,color}) => {
 
 
             </div>
-            <div style={{position:'fixed', minWidth:"100vw", height:"100vh",marginTop:"0vh",  overflow:"hidden", transform: `translateY(${diferenciaBeta * 2}px) translateX(${diferenciaGamma * 2}px)`}} >
+            <div style={{position:'fixed', minWidth:"100vw", height:"100vh",marginTop:"0vh", marginLeft:"-60vw",  overflow:"hidden", transform: `translateY(${diferenciaBeta * 1.2}px) translateX(${diferenciaGamma * 1.2}px)`}} >
                   {color==="black" &&
                 <video muted={true} autoPlay={true} loop={true} style={{ minWidth:"100vw", minHeight:"100vh" }}>
                 <source src={vid1} type='video/mp4'></source>
@@ -84,7 +84,7 @@ const Sl1Mobile = ({lang,color}) => {
             </div>
 
             <div style={{position:'fixed',zIndex:10, marginTop:"10vh", marginLeft:"10vw", width:"80vw", height:"80vw"}}>
-        <Grid columns={1} gap={10} style={{transform: `translateY(${diferenciaBeta * 2}px) translateX(${diferenciaGamma * 2}px)`}}>
+        <Grid columns={1} gap={10} style={{transform: `translateY(${diferenciaBeta * 2}px) translateX(${diferenciaGamma * 1.5}px)`}}>
         <Grid.Item style={{ textAlign:"center"}}>
                 <p style={{fontSize:"3vh", margin:"0px"}}>{lang==="ES"?presentation[0].ES : presentation[0].EN}</p>
             </Grid.Item>
