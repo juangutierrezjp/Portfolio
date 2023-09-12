@@ -33,14 +33,16 @@ const Sl1Mobile = ({lang,color}) => {
         // Agregar el evento de orientación
         window.addEventListener('deviceorientation', handleOrientation);
         // Calibrar los ángulos iniciales al montar el componente
-        const [betaInicial, setBetaInicial] = useState(beta);
-        const [gammaInicial, setGammaInicial] = useState(gamma);
+
 
         // Limpiar el evento al desmontar el componente
         return () => {
           window.removeEventListener('deviceorientation', handleOrientation);
         };
       }, []);
+
+      const [betaInicial, setBetaInicial] = useState(beta);
+      const [gammaInicial, setGammaInicial] = useState(gamma);
       const diferenciaBeta = betaInicial - beta;
       const diferenciaGamma =  gammaInicial -gamma;
 
