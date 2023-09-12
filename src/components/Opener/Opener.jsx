@@ -1,15 +1,41 @@
-import { useState } from "react";
 import ThemeSelector from "../ThemeSelector/ThemeSelector";
 import LangSelector from "../LangSelector/LangSelector";
 import { useTransition, animated } from 'react-spring';
-import { Col,Row, Button } from 'antd';
+import { Col,Row } from 'antd';
+import { Popup,  Button } from "antd-mobile";
 import {CloseOutlined, ToolOutlined  } from '@ant-design/icons';
+import React, { useEffect, useState, } from 'react';
 
 
 
 
 
 const Opener=({setcolor, setLang, color, lang})=>{
+  const [visible1, setVisible1] = useState(false)
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  const [isMobile, setIsMobile] = useState(false);
+  const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+      setViewportHeight(window.innerHeight);
+    };
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    const mobileKeywords = ['Android', 'iPhone', 'iPad', 'Windows Phone'];
+
+    const checkIsMobile = () => {
+      const isMobileDevice = mobileKeywords.some(keyword => userAgent.includes(keyword)) || viewportWidth<800;
+      setIsMobile(isMobileDevice);
+    };
+
+    // Ejecuta la comprobación cuando se carga la página
+    checkIsMobile();
+  }, [viewportWidth]);
+
+
+
+
     const [open,setOpen]=useState(false)
     const handleClick=()=>{
         setOpen(!open)
@@ -33,7 +59,7 @@ const Opener=({setcolor, setLang, color, lang})=>{
     const items2=[
         <div></div> 
         ,<div>
-            <Button  shape="circle" style={{width:"6vh", height:"6vh"}}onClick={handleClick} icon={<ToolOutlined style={{fontSize:"3vh"}}/>}></Button>
+            <Button  shape="circle" style={{width:"6vh", height:"6vh"}}onClick={handleClick} ><ToolOutlined style={{fontSize:"3vh"}}/></Button>
         </div>
     ]
 
@@ -53,7 +79,32 @@ const Opener=({setcolor, setLang, color, lang})=>{
       });   
 
     return(
-        <div style={{position:"fixed", bottom:"10px",right:"17px", zIndex:"100"}}>
+      <div>
+
+        {isMobile ? (
+          <div style={{position:"fixed", bottom:"10px",right:"17px", zIndex:"100"}}>
+          <div>
+           <Button
+              onClick={() => {
+                setVisible1(true)
+              }}
+            > <ToolOutlined style={{fontSize:"3vh"}}/>
+            </Button>
+            </div>
+            <Popup
+              visible={visible1}
+              onMaskClick={() => {
+                setVisible1(false)
+              }}
+              onClose={() => {
+                setVisible1(false)
+              }}
+              bodyStyle={{ height: '30vh' }}
+            >
+              
+            </Popup>
+            </div>
+            ):(<div style={{position:"fixed", bottom:"10px",right:"17px", zIndex:"100"}}>
             {transition2((style, item) => (
                 <animated.div style={style}className="box">
                   {item}
@@ -64,7 +115,9 @@ const Opener=({setcolor, setLang, color, lang})=>{
                   {item}
                 </animated.div>
               ))}
-        </div>
+        </div>)}
+      </div>
+        
     )
 
 
