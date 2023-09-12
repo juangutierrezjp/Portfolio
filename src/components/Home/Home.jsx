@@ -14,6 +14,7 @@ import vid1 from"../../vid/1.mp4"
 import { useTransition, animated } from 'react-spring';
 import Sl2Mobile from '../Mobile/Sl2Mobile/Sl2Mobile';
 import ChatMobile from '../Mobile/ChatMobile/ChatMobile';
+import Sl3Mobile from '../Mobile/Sl3Mobile/Sl3Mobile';
 
 
 
@@ -203,10 +204,17 @@ const Home=({color, lang})=>{
     </div>
 
     <div>
+      {isMobile?(
+    <div style={contentStyle3}>
+    <img style={{position:"fixed", marginLeft:"-20px",marginTop:"-20px",maxHeight:"110vh", minWidth:"110vw",transform: `translate(${mouseX}px, ${mouseY}px)`}} src={color==="black"?wall2:wall1} alt="" />
+      <Sl3Mobile focus={focused3}></Sl3Mobile>
+      </div>
+      ):      
     <div style={contentStyle3} onMouseMove={handleMouseMove}>
     <img style={{position:"fixed", marginLeft:"-20px",marginTop:"-20px",maxHeight:"110vh", minWidth:"110vw",transform: `translate(${mouseX}px, ${mouseY}px)`}} src={color==="black"?wall2:wall1} alt="" />
       <Sl3 focus={focused3}></Sl3>
       </div>
+    }
     </div>
 
     <div>

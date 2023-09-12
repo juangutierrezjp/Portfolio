@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd';
+import { Grid } from 'antd-mobile';
 import SvgGit from './SvgGit';
 import SvgGithub from './SvgGithub';
 import SvgPython from './SvgPython';
@@ -66,50 +67,70 @@ const BackCont=({size, mobile})=>{
         </div>}
         {mobile&&
                 <div>
-                <Row className="icon-rowM" >
-                    <Col span={24} className="icon-colM" >
+
+
+                    <Grid columns={2} className="icon-rowM">
+                        <Grid.Item className="icon-colM">
                         <div className="iconM">
-                    <SvgGit width={size} height={size} />
-                    <p className="textM">Git</p>
+                            <SvgGit width={size} height={size} />
+                            <p className="textM">Git</p>
                         </div>
+                        </Grid.Item>
+                        <Grid.Item className="icon-colM">
                         <div className="iconM">
-                    <SvgGithub width={size} height={size} />
-                    <p className="textM">Github</p>
-                        </div>
-                    </Col>
-                    <Col span={24} className="icon-colM">
-                    <div className="iconM">
+                            <SvgGithub width={size} height={size} />
+                            <p className="textM">Github</p>
+                        </div>   
+                        </Grid.Item>
+                    </Grid>
+
+                    <Grid columns={2} className="icon-rowM">
+                        <Grid.Item className="icon-colM">
+                        <div className="iconM">
                     <SvgPython width={size} height={size} />
                     <p className="textM">Python</p>
                         </div>
-                    <div className="iconM">
+                        </Grid.Item>
+                        <Grid.Item className="icon-colM">
+                        <div className="iconM">
                     <SvgJavascript width={size} height={size} />    
                     <p className="textM">Javascript</p>
                     </div>
-                    </Col>
-                    
-                    <Col span={24} className="icon-colM">
-                    <div className="iconM">
+                        </Grid.Item>
+                    </Grid>
+
+
+                    <Grid columns={2} className="icon-rowM">
+                        <Grid.Item className="icon-colM">
+                        <div className="iconM">
                     <SvgC width={size} height={size} />
                     <p className="textM">C#</p>
                     </div>
-                    <div className="iconM">
+                        </Grid.Item>
+                        <Grid.Item className="icon-colM">
+                        <div className="iconM">
                     <SvgPostgre width={size} height={size} />
                     <p className="textM">PostgreSQL</p>
                     </div>
-                    </Col>
-                    <Col span={24} className="icon-colM">
-                    <div className="iconM">
+                        </Grid.Item>
+                    </Grid>
+                    <Grid columns={2} className="icon-rowM">
+                        <Grid.Item className="icon-colM">
+                        <div className="iconM">
                     <SvgNode width={size} height={size} />
                     <p className="textM">Node</p>
                     </div>
-                    <div className="iconM">
+                        </Grid.Item>
+                        <Grid.Item className="icon-colM">
+                        <div className="iconM">
                     <SvgExpress width={size} height={size} />
                     <p className="textM">Express</p>
                     </div>
-                   </Col>
+                        </Grid.Item>
+                    </Grid>
 
-                </Row>
+
+
             </div>
         }
 
