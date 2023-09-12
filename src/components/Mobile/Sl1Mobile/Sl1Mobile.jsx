@@ -57,10 +57,10 @@ const Sl1Mobile = ({lang,color}) => {
 
     return(
         <div>
-            <div style={{position:"fixed", color:"green", zIndex:"100", marginTop:"3vh"}}>
+            <div id="scene" style={{position:"fixed", color:"green", zIndex:"100", marginTop:"3vh"}}>
                 <ul>
-                    <li>beta: {beta}</li>
-                    <li>gamma: {gamma}</li>
+                    <li  data-depth="0.2">beta: {beta}</li>
+                    <li  data-depth="0.6">gamma: {gamma}</li>
                     <li> betaInicial : {betaInicial}</li>
                     <li>gammaInicial: {gammaInicial}</li>
                     <li> diferenciaBeta:{diferenciaBeta}</li>
